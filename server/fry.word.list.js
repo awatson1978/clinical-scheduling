@@ -1187,16 +1187,15 @@ Meteor.startup(function () {
         var row = {}
         row.date =  moment().format("YYYY-MM-DD");
 
-        var hourCount = 23;
+        var hourCount = 25;
         var daycount = 0;
         var dayOffset = 0;
         for (var i = 0; i < data.length; i++) {
-            row.term = data[i].term;
+            row.notes = data[i].term;
             row.hour = (i % 24) + 1;
 
-
-                if(hourCount == 0){
-                    hourCount = 23;
+                if(hourCount == 1){
+                    hourCount = 24;
                     dayOffset = Math.floor(i / 23);
                     row.date =  moment().add('d', dayOffset).format("YYYY-MM-DD");
                 }else{

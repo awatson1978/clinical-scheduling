@@ -7,7 +7,8 @@
   "dependencies": {
     "basePackages": {
       "fonts-pictographs": {},
-      "moment": {}
+      "moment": {},
+      "fonts-barcode": {}
     },
     "packages": {
       "fonts-pictographs": {
@@ -19,6 +20,11 @@
         "git": "https://github.com/possibilities/meteor-moment.git",
         "tag": "v1.7.0",
         "commit": "c64b6ec0e714b9556f4b6643d430b868ba69d3d7"
+      },
+      "fonts-barcode": {
+        "git": "https://github.com/awatson1978/fonts-barcode.git",
+        "tag": "v0.1.3",
+        "commit": "16bf810ab354a7cece50fcf10efb9a5c2e85affb"
       }
     }
   }

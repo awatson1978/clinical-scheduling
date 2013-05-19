@@ -1,6 +1,7 @@
 {
   "packages": {
     "fonts-pictographs": {},
-    "moment": {}
+    "moment": {},
+    "fonts-barcode": {}
   }
 }

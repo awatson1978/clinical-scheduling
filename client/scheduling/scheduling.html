@@ -19,19 +19,21 @@
 <template name="calendarDayTemplate">
     <div>
         <ul class="list-unstyled">
+            <h4>
             {{#each schedule}}
-            {{> hour }}
+            {{> reservationSlotTemplate }}
             {{/each}}
+            </h4>
         </ul>
     </div>
 </template>
 
 
-<template name="hour">
-    <li class="fullwidth dynamic timeslot row">
-        <span class="col col-lg-3">{{ date }}</span>
-        <span class="col col-lg-2">{{ hour }}:00</span>
-        <span class="col col-lg-7">{{ term }}</span>
+<template name="reservationSlotTemplate">
+    <li class="fullwidth dynamic timeslot">
+        <!--<span class="col col-lg-3">{{ date }}</span>-->
+        <div class="hour label">{{ time }}</div>
+        <span class="with-left-padding">{{ notes }}</span>
     </li>
 </template>
 
@@ -40,10 +42,15 @@
     <div class="padded page helveticas">
         {{#with reservation}}
         <div class="panel">
-            <span class="col col-lg-1">id:    </span><span class="col col-lg-8">{{ reservationSlot }}</span><br>
-            <span class="col col-lg-1">Date:  </span><span class="col col-lg-8">{{date}}</span><br>
-            <span class="col col-lg-1">Hour:  </span><span class="col col-lg-8">{{hour}}</span><br>
-            <span class="col col-lg-1">Term:  </span><span class="col col-lg-8">{{term}}</span>
+            <ul class="list-unstyled">
+                <h4>
+                <!--<li class="large barcode">{{ reservationSlot }}</li>-->
+                <li><span class="label">Date</span><span class="with-left-padding">{{date}}</span></li>
+                <li><span class="label">Hour</span><span class="with-left-padding">{{hour}}:00</span></li>
+                <li><hr class="gray-line"></li>
+                <li><span class="label">Notes</span><span class="with-left-padding">{{notes}}</span></li>
+                </h4>
+            </ul>
         </div>
         <div class="notepad panel">
             {{ reservationJson }}

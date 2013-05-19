@@ -10,7 +10,14 @@ Template.calendarDayTemplate.events({
 
 
 
-
+Template.reservationSlotTemplate.time = function(){
+    console.log(this.hour.length);
+    if(this.hour.toString().length == 1){
+        return "0" + this.hour.toString() + ":00";
+    }else{
+        return this.hour.toString() + ":00";
+    }
+};
 
 Template.schedulingPageTemplate.events({
     'click .next':function(){
