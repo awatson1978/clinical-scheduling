@@ -1,0 +1,102 @@
+
+<template name="workqueuesPageTemplate">
+    <div id="workqueuesPage" class="page helveticas">
+        <!-- not sure if a free-form text input is the right way to schedule an item -->
+        <!--<div class="new-task-container">-->
+            <!--<input id="newTaskInput" type="text" class="search lightgray" value="add new task" />-->
+        <!--</div>-->
+        {{> workqueueTemplate}}
+    </div>
+</template>
+
+
+<template name="workqueueTemplate">
+    <div id="items-view" class="touch-trigger touch-disabled">
+        <ul id="item-list">
+            {{#each todos}}
+            {{> taskItemTemplate}}
+            {{/each}}
+        </ul>
+    </div>
+    {{#if showTaskDetail}}
+    {{> taskDetailAnchorTemplate }}
+    {{/if}}
+</template>
+
+<template name="taskItemTemplate">
+    <li class="todo {{done_class}}">
+        <ul class="inline-list">
+            {{#if editing}}
+            <li class="edit">
+                <input id="todo-input" type="text" value="{{!text}}" />
+            </li>
+            {{else}}
+            <li class="display">
+                <span class="largish unselectable {{task_complete}} checkmark pictogram">%</span>
+            </li>
+            <li class="display">
+                <span class="largish unselectable {{task_star}} task-star pictogram">*</span>
+            </li>
+            <li class="display">
+                <span class="largish unselectable lightgray task-info pictogram hide-for-small">b</span>
+            </li>
+            <li class="display">
+                <span class="largish unselectable lightgray task-delete pictogram hide-for-small">x</span>
+            </li>
+            <li class="display">
+                <span class="todo-text {{task_text_complete}}">{{text}}</span>
+            </li>
+            {{/if}}
+            <li class="item-tags">
+
+            </li>
+        </ul>
+    </li>
+</template>
+
+
+<template name="taskDetailAnchorTemplate">
+    <div id="taskDetailCard" class="task-detail-container">
+        {{> taskDetailCardTemplate }}
+    </div>
+</template>
+
+
+<template name="taskDetailCardTemplate">
+    <div class="card-header rounded-top-right">
+        <span class="white neo-card-meta-data barcode">{{todo_id}}</span>
+        <span class="right pictograph with-right-padding">x</span>
+    </div>
+
+    <div class="task-detail-card-body card-body-resize">
+        <div class="detailed-task-text">{{ todo_text }}</div>
+
+        <ul class="web-link-controls">
+            <li>
+                <span class="web-icon pictograph">w</span>
+                <span class="web-link-text">---------------------------------------------------------------------------------------</span>
+            </li>
+        </ul>
+        <ul class="detailed-task-card-controls">
+            <li class="task-detail-checkmark curved-control-button">
+                <span class="control-button {{detailed_task_complete}} pictograph">%</span>
+            </li>
+            <li class="task-detail-star">
+                <span class="control-button {{detailed_task_star}} pictograph">*</span>
+            </li>
+            <li class="task-detail-delete">
+                <span class="control-button pictograph">x</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="task-detail-tag-footer card-footer-resize">
+    </div>
+</template>
+
+
+<template name="workqueuesSortingTemplate">
+    <li class="sort-completed"><a href="#"><span class="largish {{sortCompletedSelected}} pictographs">%</span></a></li>
+    <li class="sort-starred"><a href="#"><span class="largish {{sortStarredSelected}} pictographs">*</span></a></li>
+    <li class="sort-alphabetical"><a href="#"><span class="largish {{sortAlphabeticallySelected}} pictographs">4</span></a></li>
+</template>

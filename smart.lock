@@ -1,0 +1,25 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "5d736d4bf0448c7db1f9b47124dfafc34a9631bb"
+  },
+  "dependencies": {
+    "basePackages": {
+      "fonts-pictographs": {},
+      "moment": {}
+    },
+    "packages": {
+      "fonts-pictographs": {
+        "git": "https://github.com/awatson1978/fonts-pictographs.git",
+        "tag": "v0.1.0",
+        "commit": "cb97a9a2728349ef866abaf4c416314ce45fcd87"
+      },
+      "moment": {
+        "git": "https://github.com/possibilities/meteor-moment.git",
+        "tag": "v1.7.0",
+        "commit": "c64b6ec0e714b9556f4b6643d430b868ba69d3d7"
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+
+
+
+<template name="schedulingPageTemplate">
+    <div id="workqueuesPage" class="padded page helveticas">
+        <div class="panel centered">
+            <button class="dynamic btn btn-primary previous pictograph"> < </button>
+            <button class="dynamic btn btn-primary displayed_date pictograph"> {{ selected_date }}  </button>
+            <button class="dynamic btn btn-primary pictograph"> No Room Selected </button>
+            <button class="dynamic btn btn-primary next pictograph"> > </button>
+        </div>
+        <div class="panel">
+            {{> calendarDayTemplate}}
+        </div>
+    </div>
+</template>
+
+
+<template name="calendarDayTemplate">
+    <div>
+        <ul class="list-unstyled">
+            {{#each schedule}}
+            {{> hour }}
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+
+<template name="hour">
+    <li class="fullwidth dynamic timeslot row">
+        <span class="col col-lg-3">{{ date }}</span>
+        <span class="col col-lg-2">{{ hour }}:00</span>
+        <span class="col col-lg-7">{{ term }}</span>
+    </li>
+</template>
+
+
+<template name="reservationDetailPane">
+    <div class="padded page helveticas">
+        {{#with reservation}}
+        <div class="panel">
+            <span class="col col-lg-1">id:    </span><span class="col col-lg-8">{{ reservationSlot }}</span><br>
+            <span class="col col-lg-1">Date:  </span><span class="col col-lg-8">{{date}}</span><br>
+            <span class="col col-lg-1">Hour:  </span><span class="col col-lg-8">{{hour}}</span><br>
+            <span class="col col-lg-1">Term:  </span><span class="col col-lg-8">{{term}}</span>
+        </div>
+        <div class="notepad panel">
+            {{ reservationJson }}
+        </div>
+
+        {{/with}}
+    </div>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
