@@ -57,6 +57,12 @@ Template.schedulingPageTemplate.selected_date = function(){
 // this daily calendar of 24 hours
 
 Template.calendarDayTemplate.schedule = function(){
+
+    var data = 0;
+    Schedule.find().forEach(function(document){
+        data++;
+    });
+    console.log('calendarDayTemplate::data: ' + data);
     return Schedule.find({date: Session.get('display_date')},{});
 };
 Template.calendarDayTemplate.events({

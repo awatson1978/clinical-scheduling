@@ -1,5 +1,10 @@
 //  bootstrapping the collections that run the scheduling module
 
+//schedule.date
+//schedule.hour
+//schedule.reservations
+//schedule.notes
+
 Meteor.startup(function () {
     // if there are no rooms, create sample room resources
     console.log('creating rooms...');
@@ -65,6 +70,9 @@ Meteor.startup(function () {
         // we add three months worth of timeslots
         for (var i = 0; i < 2160; i++) {
             row.hour = (i % 24) + 1;
+            row.Open = Math.random() * 10000;
+            row.Close = Math.random() * 10000;
+
 
             if(hourCount == 1){
                 hourCount = 24;
@@ -108,8 +116,7 @@ Meteor.startup(function () {
 
 
 
-
-
+    console.log('everything should be all set...');
 });
 
 

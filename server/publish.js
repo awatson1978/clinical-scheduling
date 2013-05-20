@@ -18,3 +18,9 @@ Meteor.publish('rooms', function () {
     return Rooms.find();
 });
 
+
+Meteor.publish('dowjones', function () {
+    return DowJonesSample.find();
+});
+
+
