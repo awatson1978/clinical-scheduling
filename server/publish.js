@@ -5,14 +5,6 @@ Meteor.publish('mySchedule', function (ownerId) {
         console.log(error);
     }
 });
-//Meteor.publish('roomSchedule', function (roomId) {
-//    try{
-//        return Schedule.find({reservationLocks: roomId}, {limit: 40});
-//        return Schedule.find({reservations: {roomId: {$exists: true} }}, {limit: 40});
-//    }catch(error){
-//        console.log(error);
-//    }
-//});
 
 Meteor.publish('schedule', function () {
     try{
@@ -26,11 +18,3 @@ Meteor.publish('rooms', function () {
     return Rooms.find();
 });
 
-
-//Meteor.publish('schedule', function (specifiedDate) {
-//    try{
-//        return Schedule.find({date: specifiedDate},{limit: 40});
-//    }catch(error){
-//        console.log(error);
-//    }
-//});

@@ -5,47 +5,47 @@ Meteor.startup(function () {
     console.log('creating rooms...');
     if (Rooms.find().count() === 0) {
         Rooms.insert({
-            name: 'Brazil room 1',
+            name: 'Brazil Room 1',
             random: '0',
             reservations: []
         });
         Rooms.insert({
-            name: 'Brazil room 2',
+            name: 'Brazil Room 2',
             random: '1',
             reservations: []
         });
         Rooms.insert({
-            name: 'Brazil room 3',
+            name: 'Brazil Room 3',
             random: '2',
             reservations: []
         });
         Rooms.insert({
-            name: 'Russia room 1',
+            name: 'Russia Room 1',
             random: '3',
             reservations: []
         });
         Rooms.insert({
-            name: 'Russia room 2',
+            name: 'Russia Room 2',
             random: '4',
             reservations: []
         });
         Rooms.insert({
-            name: 'Russia room 3',
+            name: 'Russia Room 3',
             random: '5',
             reservations: []
         });
         Rooms.insert({
-            name: 'India room 1',
+            name: 'India Room 1',
             random: '6',
             reservations: []
         });
         Rooms.insert({
-            name: 'India room 2',
+            name: 'India Room 2',
             random: '7',
             reservations: []
         });
         Rooms.insert({
-            name: 'India room 3',
+            name: 'India Room 3',
             random: '8',
             reservations: []
         });
@@ -91,11 +91,11 @@ Meteor.startup(function () {
         var roomArray = Rooms.find({}).fetch();
         Schedule.find().forEach(function(document){
             console.log(JSON.stringify(document));
-            if(Math.random() < 0.30){
+            if(Math.random() < 0.50){
                 try{
                     var room = roomArray[Math.floor(Math.random() * roomArray.length)];
-                    console.log("room: " + JSON.stringify(room));
-                    console.log("room._id: " + room._id);
+                    //console.log("room: " + JSON.stringify(room));
+                    //console.log("room._id: " + room._id);
 
                     Rooms.update(room._id, {$addToSet: {reservations: document._id}});
                 }catch(error){
