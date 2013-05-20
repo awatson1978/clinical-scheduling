@@ -3,6 +3,8 @@
 // schedulingPageTemplate
 // the header and date picker
 
+
+// don't show the scheduling calendar unless a room has been selected
 Template.schedulingPageTemplate.helpers({
     inquery: function(){
         if(Session.get('selected_room') == ""){
@@ -13,6 +15,7 @@ Template.schedulingPageTemplate.helpers({
     }
 });
 
+// displays the name of the selected room, if selected
 Template.schedulingPageTemplate.selected_room = function(){
     if(Session.get('selected_room')){
         return Rooms.findOne(Session.get('selected_room')).name;
@@ -21,6 +24,7 @@ Template.schedulingPageTemplate.selected_room = function(){
     }
 };
 
+// add or subtract a day to the displayed date
 Template.schedulingPageTemplate.events({
     'touchend .next':function(){
         Session.set('display_date', moment(Session.get('display_date')).add('d', 1).format("YYYY-MM-DD"));
@@ -47,6 +51,8 @@ Template.schedulingPageTemplate.events({
         Meteor.flush();
     }
 });
+
+// format the display date
 Template.schedulingPageTemplate.selected_date = function(){
     return moment(Session.get('display_date')).format("MMM Do YYYY");
 };
@@ -56,15 +62,13 @@ Template.schedulingPageTemplate.selected_date = function(){
 // calendarDayTemplate
 // this daily calendar of 24 hours
 
-Template.calendarDayTemplate.schedule = function(){
 
-    var data = 0;
-    Schedule.find().forEach(function(document){
-        data++;
-    });
-    console.log('calendarDayTemplate::data: ' + data);
+// filter the schedule to the 24 hours of the selected display date
+Template.calendarDayTemplate.schedule = function(){
     return Schedule.find({date: Session.get('display_date')},{});
 };
+
+// when you click a reservation slot, set a variable
 Template.calendarDayTemplate.events({
     'touchend .timeslot': function(){
         Session.set('selected_hour', this._id);
@@ -80,6 +84,7 @@ Template.calendarDayTemplate.events({
 // reservationSlotTemplate
 // each hour in the calendar
 
+// format the displayed time
 Template.reservationSlotTemplate.time = function(){
     if(this.hour.toString().length == 1){
         return "0" + this.hour.toString() + ":00";
@@ -87,13 +92,10 @@ Template.reservationSlotTemplate.time = function(){
         return this.hour.toString() + ":00";
     }
 };
-Template.reservationSlotTemplate.isReserved = function(){
-    if(this.reserved != ""){
-        return true;
-    }else{
-        return false;
-    }
-}
+
+
+
+// the text to display in the reservation status label
 Template.reservationSlotTemplate.reservation_status = function(){
     try{
         if(Session.get('selected_room') != ""){
@@ -111,6 +113,8 @@ Template.reservationSlotTemplate.reservation_status = function(){
         console.log(error);
     }
 };
+
+// the color to display the reservation label
 Template.reservationSlotTemplate.reservation_label = function(){
     try{
         if(Session.get('selected_room') != ""){

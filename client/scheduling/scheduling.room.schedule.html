@@ -36,9 +36,7 @@
 <template name="reservationSlotTemplate">
     <li class="fullwidth dynamic timeslot">
         <div class="hour label">{{ time }}</div>
-        {{#if isReserved }}
-            <div class="room label {{reservation_label}}">{{ reservation_status }}</div>
-        {{/if}}
+        <div class="room label {{reservation_label}}">{{ reservation_status }}</div>
         <span class="with-left-padding">{{ notes }}</span>
     </li>
 

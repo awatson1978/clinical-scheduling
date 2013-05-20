@@ -4,7 +4,7 @@ Template.calendarYearTemplate.destroyed = function () {
 Template.calendarYearTemplate.rendered = function () {
     console.log('rendering calendar...');
 
-    //var resize = Session.get("resize");
+    var resize = Session.get("resize");
     self.node = self.find("svg");
 
     if (! self.handle) {

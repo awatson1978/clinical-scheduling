@@ -4,17 +4,14 @@
 // reservationDetailPane
 
 
-Template.reservationDetailPane.reservationSlot = function(){
-    return Session.get('selected_hour');
-};
+// finds the correct reservation slot
 Template.reservationDetailPane.helpers({
     reservation: function(){
         return Schedule.findOne(Session.get('selected_hour'));
-    },
-    reservationJson: function(){
-        return JSON.stringify(Schedule.findOne(Session.get('selected_hour')));
     }
 });
+
+// toggles the header color
 Template.reservationDetailPane.reservation_color = function(){
     var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
     if(reservations.indexOf(this._id) > -1){
@@ -23,6 +20,8 @@ Template.reservationDetailPane.reservation_color = function(){
         return "panel-success";
     }
 };
+
+// toggles the header text
 Template.reservationDetailPane.reservation_status = function(){
     var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
     if(reservations.indexOf(this._id) > -1){
@@ -31,6 +30,17 @@ Template.reservationDetailPane.reservation_status = function(){
         return "Available";
     }
 };
+
+// formats the date
+Template.reservationDetailPane.reservation_date = function(){
+    return moment(Session.get('display_date')).format("MMM Do YYYY");
+};
+
+
+//-------------------------------------------------------------
+// buttons
+
+//toggles which button is displayed
 Template.reservationDetailPane.reserved = function(){
     var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
     if(reservations.indexOf(this._id) > -1){
@@ -39,6 +49,28 @@ Template.reservationDetailPane.reserved = function(){
         return false;
     }
 };
+
+// adds this reservation slot to the room's list of reservations
+Template.reservationDetailPane.events({
+    'touchend #reserveRoomsButton':function(){
+        Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
+    },
+    'touchend #cancelReservationButton':function(){
+        Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
+    },
+    'click #reserveRoomsButton':function(){
+        Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
+    },
+    'click #cancelReservationButton':function(){
+        Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
+    }
+
+});
+
+
+
+
+
 //-------------------------------------------------------------
 // edit scheduled reservation notes (form)
 
@@ -78,25 +110,3 @@ Template.reservationDetailPane.reserved = function(){
 //    }
 //};
 
-
-//-------------------------------------------------------------
-// buttons
-
-Template.reservationDetailPane.events({
-    'touchend #reserveRoomsButton':function(){
-        Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
-    },
-    'touchend #cancelReservationButton':function(){
-        Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
-    },
-    'click #reserveRoomsButton':function(){
-        Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
-    },
-    'click #cancelReservationButton':function(){
-        Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
-    }
-
-});
-Template.reservationDetailPane.reservation_date = function(){
-    return moment(Session.get('display_date')).format("MMM Do YYYY");
-};
