@@ -23,7 +23,7 @@
       <file leaf-file-name="scheduling.room.status.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.status.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="29" selection-start="2465" selection-end="2465" vertical-scroll-proportion="1.0637523">
+            <state line="94" column="10" selection-start="3081" selection-end="3081" vertical-scroll-proportion="0.81056464">
               <folding />
             </state>
           </provider>
@@ -32,7 +32,7 @@
       <file leaf-file-name="scheduling.room.schedule.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="24" selection-start="1739" selection-end="1739" vertical-scroll-proportion="0.0">
+            <state line="58" column="25" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -41,7 +41,7 @@
       <file leaf-file-name="scheduling.room.select.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.select.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="8" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+            <state line="19" column="10" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -72,9 +72,9 @@
         <option value="$PROJECT_DIR$/.scrap/syntax.custom.bootstrap.less" />
         <option value="$PROJECT_DIR$/server/publish.js" />
         <option value="$PROJECT_DIR$/model.js" />
-        <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.status.js" />
         <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.js" />
         <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.select.js" />
+        <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.status.js" />
       </list>
     </option>
   </component>
@@ -404,14 +404,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="24" selection-start="1739" selection-end="1739" vertical-scroll-proportion="0.0">
+        <state line="58" column="25" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.select.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+        <state line="19" column="10" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -420,7 +420,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.status.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="29" selection-start="2465" selection-end="2465" vertical-scroll-proportion="1.0637523">
+        <state line="94" column="10" selection-start="3081" selection-end="3081" vertical-scroll-proportion="0.81056464">
           <folding />
         </state>
       </provider>

@@ -23,16 +23,26 @@ Template.schedulingPageTemplate.selected_room = function(){
 
 Template.schedulingPageTemplate.events({
     'tap .next':function(){
-        console.log(moment().add('d', 1).format("YYYY-MM-DD"));
         Session.set('display_date', moment(Session.get('display_date')).add('d', 1).format("YYYY-MM-DD"));
         Meteor.flush();
     },
     'tap .previous':function(){
-        console.log(moment().subtract('d', 1).format("YYYY-MM-DD"));
         Session.set('display_date', moment(Session.get('display_date')).subtract('d', 1).format("YYYY-MM-DD"));
         Meteor.flush();
     },
     'tap .displayed_date':function(){
+        Session.set('display_date', moment().format("YYYY-MM-DD"));
+        Meteor.flush();
+    },
+    'click .next':function(){
+        Session.set('display_date', moment(Session.get('display_date')).add('d', 1).format("YYYY-MM-DD"));
+        Meteor.flush();
+    },
+    'click .previous':function(){
+        Session.set('display_date', moment(Session.get('display_date')).subtract('d', 1).format("YYYY-MM-DD"));
+        Meteor.flush();
+    },
+    'click .displayed_date':function(){
         Session.set('display_date', moment().format("YYYY-MM-DD"));
         Meteor.flush();
     }
@@ -51,6 +61,9 @@ Template.calendarDayTemplate.schedule = function(){
 };
 Template.calendarDayTemplate.events({
     'tap .timeslot': function(){
+        Session.set('selected_hour', this._id);
+    },
+    'click .timeslot': function(){
         Session.set('selected_hour', this._id);
     }
 });

@@ -88,7 +88,14 @@ Template.reservationDetailPane.events({
     },
     'tap #cancelReservationButton':function(){
         Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
+    },
+    'click #reserveRoomsButton':function(){
+        Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
+    },
+    'click #cancelReservationButton':function(){
+        Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
     }
+
 });
 Template.reservationDetailPane.reservation_date = function(){
     return moment(Session.get('display_date')).format("MMM Do YYYY");
