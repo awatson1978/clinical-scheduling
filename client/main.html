@@ -7,13 +7,23 @@
 </body>
 
 <template name="appContainerTemplate">
-    <div class="row">
+    <div class="padded row">
+        <div class="col col-lg-3">
+            {{> roomSelectionTemplate }}
+        </div>
         <div class="col col-lg-6">
             {{> schedulingPageTemplate }}
         </div>
-        <div class="col col-lg-6">
+        <div class="col col-lg-3">
             {{> reservationDetailPane }}
         </div>
     </div>
+
+    <div class="fullwidth padded json-container">
+        <div class="json panel">
+            {{ reservationJson }}
+        </div>
+    </div>
 </template>
+
 

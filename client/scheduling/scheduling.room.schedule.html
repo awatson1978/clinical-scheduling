@@ -1,0 +1,43 @@
+
+
+
+<template name="schedulingPageTemplate">
+    <div class="padded page helveticas">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Room Schedule {{ selected_room }}
+            </div>
+            <button class="dynamic btn btn-primary previous pictograph"> < </button>
+            <button class="dynamic btn btn-primary displayed_date pictograph"> {{ selected_date }}  </button>
+            <button class="dynamic btn btn-primary next pictograph"> > </button>
+        </div>
+        <div class="panel ">
+            {{> calendarDayTemplate}}
+        </div>
+    </div>
+</template>
+
+
+<template name="calendarDayTemplate">
+    <div>
+        <ul class="list-unstyled">
+            <h4>
+                {{#each schedule}}
+                {{> reservationSlotTemplate }}
+                {{/each}}
+            </h4>
+        </ul>
+    </div>
+</template>
+
+
+<template name="reservationSlotTemplate">
+    <li class="fullwidth dynamic timeslot">
+        <!--<span class="col col-lg-3">{{ date }}</span>-->
+        <div class="hour label">{{ time }}</div>
+        {{#if isReserved }}
+            <div class="room label label-success">{{ room_name }}</div>
+        {{/if}}
+        <span class="with-left-padding">{{ notes }}</span>
+    </li>
+</template>

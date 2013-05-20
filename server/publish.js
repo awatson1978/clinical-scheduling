@@ -22,6 +22,9 @@ Meteor.publish('schedule', function () {
         console.log(error);
     }
 });
+Meteor.publish('rooms', function () {
+    return Rooms.find();
+});
 
 
 //Meteor.publish('schedule', function (specifiedDate) {

@@ -1,0 +1,42 @@
+<template name="reservationDetailPane">
+    <div class="padded page helveticas">
+        {{#with reservation}}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Schedule Status
+            </div>
+            <ul class="list-unstyled">
+                <h4>
+                    <!--<li class="large barcode">{{ reservationSlot }}</li>-->
+                    <li><span class="label">Date</span><span class="with-left-padding">{{date}}</span></li>
+                    <li><span class="label">Hour</span><span class="with-left-padding">{{hour}}:00</span></li>
+                    <li><hr class="gray-line"></li>
+                    <li>
+                        <span class="label">Notes</span>
+                        {{#if editing_notes}}
+                            <span>
+                                <input id="notesTextInput" type="text" placeholder="Some text" value="{{ notes }}" />
+                            </span>
+                        {{else}}
+                        <span id="notesTextDisplay">
+                            <span class="clickable with-left-padding">{{notes}}</span>
+                        </span>
+                        {{/if}}
+                    </li>
+                    <li><hr class="gray-line"></li>
+                    <li class="with-bottom-padding"><button class="fullwidth button-primary with-bottom-padding">Reserve Rooms</button></button></li>
+                    <li><button class="fullwidth button-warning">Cancel Reservation</button></button></li>
+
+                </h4>
+            </ul>
+        </div>
+
+
+        {{/with}}
+    </div>
+</template>
+
+
+
+
+

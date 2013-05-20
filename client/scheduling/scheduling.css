@@ -1,0 +1,12 @@
+
+.hour{
+    width: 60px !important;
+}
+.timeslot, .roomslot{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 3px;
+}
+.timeslot:first-of-type, .roomslot:first-of-type{
+    border-top: 1px solid lightgray;
+}
+
