@@ -22,15 +22,15 @@ Template.schedulingPageTemplate.selected_room = function(){
 };
 
 Template.schedulingPageTemplate.events({
-    'tap .next':function(){
+    'touchend .next':function(){
         Session.set('display_date', moment(Session.get('display_date')).add('d', 1).format("YYYY-MM-DD"));
         Meteor.flush();
     },
-    'tap .previous':function(){
+    'touchend .previous':function(){
         Session.set('display_date', moment(Session.get('display_date')).subtract('d', 1).format("YYYY-MM-DD"));
         Meteor.flush();
     },
-    'tap .displayed_date':function(){
+    'touchend .displayed_date':function(){
         Session.set('display_date', moment().format("YYYY-MM-DD"));
         Meteor.flush();
     },
@@ -60,7 +60,7 @@ Template.calendarDayTemplate.schedule = function(){
     return Schedule.find({date: Session.get('display_date')},{});
 };
 Template.calendarDayTemplate.events({
-    'tap .timeslot': function(){
+    'touchend .timeslot': function(){
         Session.set('selected_hour', this._id);
     },
     'click .timeslot': function(){

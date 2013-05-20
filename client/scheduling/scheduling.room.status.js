@@ -83,10 +83,10 @@ Template.reservationDetailPane.reserved = function(){
 // buttons
 
 Template.reservationDetailPane.events({
-    'tap #reserveRoomsButton':function(){
+    'touchend #reserveRoomsButton':function(){
         Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
     },
-    'tap #cancelReservationButton':function(){
+    'touchend #cancelReservationButton':function(){
         Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
     },
     'click #reserveRoomsButton':function(){
