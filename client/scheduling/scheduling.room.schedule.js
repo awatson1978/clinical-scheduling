@@ -100,8 +100,8 @@ Template.reservationSlotTemplate.reservation_status = function(){
     try{
         if(Session.get('selected_room') != ""){
             var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
-            console.log("reservations: " + JSON.stringify(reservations));
-            console.log("this._id: " + this._id);
+//            console.log("reservations: " + JSON.stringify(reservations));
+//            console.log("this._id: " + this._id);
 
             if(reservations.indexOf(this._id) > -1){
                 return "reserved";

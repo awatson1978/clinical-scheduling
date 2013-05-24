@@ -1,17 +1,19 @@
 Template.calendarYearTemplate.destroyed = function () {
     this.handle && this.handle.stop();
 };
+Template.calendarYearTemplate.resized = function () {
+    //updateCalendarYearChart();
+    return Session.get("resized");
+};
 Template.calendarYearTemplate.rendered = function () {
     console.log('rendering calendar...');
 
-    var resize = Session.get("resize");
     self.node = self.find("svg");
 
     if (! self.handle) {
         console.log('no safe handle...');
         self.handle = Meteor.autorun(function(){
             console.log('creating handle...');
-            console.log(Session.get('display_date'));
             renderCalendarYearChart();
         });
     };
@@ -66,10 +68,26 @@ function renderCalendarYearChart(){
         .attr("d", monthPath);
 
 
+//    d3.csv("datafile/dji.csv", function(error, csv) {
+//        var data = d3.nest()
+//            .key(function(d) { return d.Date; })
+//            .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
+//            .map(csv);
+//
+//        console.log(JSON.stringify(data));
+//
+//        rect.filter(function(d) { return d in data; })
+//            .attr("class", function(d) { return "day " + color(data[d]); })
+//            .select("title")
+//            .text(function(d) { return d + ": " + percent(data[d]); });
+//    });
+
     var data = d3.nest()
             .key(function(d) { return d.Date; })
             .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
             .map(DowJonesSample.find().fetch());
+
+    console.log(JSON.stringify(data));
 
     rect.filter(function(d) { return d in data; })
         .attr("class", function(d) { return "day " + color(data[d]); });
@@ -89,4 +107,36 @@ function renderCalendarYearChart(){
 
     d3.select(self.frameElement).style("height", "500px");
 
+
+// from sunburst
+//    path.data(partition.value(value).nodes)
+//        .transition()
+//        .duration(1500)
+//        .attrTween("d", arcTween);
+
+//    var newdata = d3.nest()
+//        .key(function(d) { return d.Date; })
+//        .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
+//        .map(DowJonesSample.find().fetch());
+//
+//    rect.filter(function(d) { return d in newdata; })
+//        .attr("class", function(d) { return "day " + color(data[d]); })
+//        .transition()
+//        .duration(1500);
+
 };
+
+function updateCalendarYearChart(){
+//    var width = (window.innerWidth - 55);
+//    var height = 180;
+//
+//    var svg = d3.select("#calendarYearGraph").selectAll("svg")
+//        .attr("width", width)
+//        .attr("height", height);
+//
+};
+
+$(window).resize(function(evt) {
+    d3.select('#calendarYearGraph')
+        .attr('width', window.innerWidth);
+});
