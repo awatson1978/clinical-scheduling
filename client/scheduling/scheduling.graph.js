@@ -1,14 +1,9 @@
-Template.calendarYearTemplate.destroyed = function () {
-    this.handle && this.handle.stop();
-};
+
 Template.calendarYearTemplate.resized = function () {
-//    try{
-//        d3.select("#calendarYearGraph").selectAll("svg")
-//            .attr("width", window.innerWidth - 40);
-//    }catch(error){
-//        console.log(error);
-//    }
     return Session.get("resized");
+};
+Template.calendarYearTemplate.roomselected = function () {
+    return Session.get("selected_room");
 };
 Template.calendarYearTemplate.rendered = function () {
     console.log('rendering calendar...');
@@ -16,10 +11,12 @@ Template.calendarYearTemplate.rendered = function () {
     var self = this;
     self.node = self.find("svg");
 
-    if (! self.handle) {
-        console.log('no safe handle...');
+    if (!self.handle) {
+        console.log('creating reactive D3 container...');
         self.handle = Deps.autorun(function(){
+            var resized = Session.get('resized');
             var selectedRoomId = Session.get('selected_room');
+
             if(selectedRoomId){
                 var reservationsArray = Rooms.findOne(selectedRoomId).reservations;
             }
@@ -45,7 +42,7 @@ Template.calendarYearTemplate.rendered = function () {
             try{
                 console.log('creating SVG canvas to draw on...');
                 var svg = d3.select("#calendarYearGraph").selectAll("svg")
-                    .data(d3.range(2008, 2009))
+                    .data(d3.range(2012, 2014))
                     .enter().append("svg")
                     .attr("width", width)
                     .attr("height", height)
@@ -90,20 +87,43 @@ Template.calendarYearTemplate.rendered = function () {
                     + "H" + (w0 + 1) * cellSize + "Z";
             }
 
+            var collectionData = null;
+            var reservationsList = null;
+            var parsedReservationsList = null;
             try{
-                console.log('mapping and rolling up date...');
+                console.log('querying data from collection...');
+                //var collectionData = DowJonesSample.find({'Date': { $regex: '2008', $options: 'i' }}).fetch();
+
+                console.log(selectedRoomId);
+                console.log(Rooms.findOne(selectedRoomId).name);
+
+                //console.log(JSON.stringify(Rooms.findOne(selectedRoomId).reservations));
+                // mongo stores the array of _ids as an array of strings
+                // this converts the reservations list to an array of numbers
+
+
+                collectionData = Schedule.find({_id: {$in: Rooms.findOne(selectedRoomId).reservations}}).fetch();
+//                collectionData.forEach(function(document){
+//                    console.log(JSON.stringify(document));
+//                })
+
+
+                console.log(JSON.stringify(collectionData));
+            }catch(error){console.log(error);}
+
+            try{
+                console.log('mapping and rolling up data...');
                 var data = d3.nest()
-                    .key(function(d) { return d.Date; })
-                    .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
-                    .map(DowJonesSample.find({
-                    'Date': { $regex: '2008', $options: 'i' }
-                }).fetch());
+                    .key(function(d) { return d.date; })
+                    //.rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
+                    .rollup(function(d) { return 1; })
+                    .map(collectionData);
             }catch(error){console.log(error);}
 
             console.log(JSON.stringify(data));
 
             try{
-                console.log('mapping and rolling up date...');
+                console.log('applying color filter to rectangles...');
                 rect.filter(function(d) { return d in data; })
                     .attr("class", function(d) { return "day " + color(data[d]); });
             }catch(error){console.log(error);}
@@ -112,7 +132,9 @@ Template.calendarYearTemplate.rendered = function () {
         });
     };
 };
-
+Template.calendarYearTemplate.destroyed = function () {
+    this.handle && this.handle.stop();
+};
 
 function renderCalendarYearChart(){
     console.log('renderCalendarYearChart');

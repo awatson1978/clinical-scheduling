@@ -10,8 +10,10 @@ Template.roomSelectionTemplate.roomList = function(){
 Template.roomSelectionTemplate.events({
     'touchend .roomslot':function(){
         Session.set('selected_room', this._id);
+        Meteor.flush();
     },
     'click .roomslot':function(){
         Session.set('selected_room', this._id);
+        Meteor.flush();
     }
 });

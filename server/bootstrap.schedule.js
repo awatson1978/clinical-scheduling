@@ -82,13 +82,6 @@ Meteor.startup(function () {
                 hourCount--;
             }
 
-
-            //row.reserved = [];
-//            row.reserved = "";
-//            if(Math.random() < 0.30){
-//                row.reserved = Math.floor((Math.random()*9)+1);
-//            }
-
             console.log(JSON.stringify(row));
             Schedule.insert(row);
         }

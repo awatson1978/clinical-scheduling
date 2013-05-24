@@ -23,7 +23,16 @@
       <file leaf-file-name="scheduling.graph.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="983" selection-end="983" vertical-scroll-proportion="0.41300192">
+            <state line="105" column="0" selection-start="4278" selection-end="4392" vertical-scroll-proportion="0.32695985">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scheduling.room.status.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.status.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="78" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -41,7 +50,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="25" selection-start="47" selection-end="59" vertical-scroll-proportion="0.0">
+            <state line="10" column="8" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -50,7 +59,7 @@
       <file leaf-file-name="scheduling.room.schedule.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="88" selection-start="3064" selection-end="3140" vertical-scroll-proportion="0.0">
+            <state line="94" column="0" selection-start="2871" selection-end="2871" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -59,7 +68,7 @@
       <file leaf-file-name="scheduling.graph.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.graph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="23" selection-start="158" selection-end="158" vertical-scroll-proportion="-3.2">
+            <state line="6" column="51" selection-start="245" selection-end="245" vertical-scroll-proportion="-3.84">
               <folding />
             </state>
           </provider>
@@ -68,7 +77,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="36" selection-start="164" selection-end="164" vertical-scroll-proportion="-5.76">
+            <state line="8" column="38" selection-start="127" selection-end="127" vertical-scroll-proportion="-5.12">
               <folding />
             </state>
           </provider>
@@ -84,7 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/server/bootstrap.schedule.js" />
         <option value="$PROJECT_DIR$/server/bootstrap.downjones.js" />
         <option value="$PROJECT_DIR$/server/bootstrap.dowjowns.js" />
         <option value="$PROJECT_DIR$/server/bootstrap.dowjones.js" />
@@ -92,20 +100,21 @@
         <option value="$PROJECT_DIR$/server/publish.js" />
         <option value="$PROJECT_DIR$/client/subscription.js" />
         <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.status.js" />
-        <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.select.js" />
         <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.html" />
         <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.js" />
         <option value="$PROJECT_DIR$/client/main.js" />
-        <option value="$PROJECT_DIR$/client/scheduling/scheduling.graph.html" />
         <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/client/scheduling/calendar.less" />
+        <option value="$PROJECT_DIR$/client/scheduling/scheduling.room.select.js" />
+        <option value="$PROJECT_DIR$/client/scheduling/scheduling.graph.html" />
+        <option value="$PROJECT_DIR$/server/bootstrap.schedule.js" />
         <option value="$PROJECT_DIR$/client/scheduling/scheduling.graph.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="36" />
-    <option name="y" value="225" />
+    <option name="x" value="55" />
+    <option name="y" value="213" />
     <option name="width" value="1143" />
     <option name="height" value="1204" />
   </component>
@@ -284,13 +293,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="36" y="225" width="1143" height="1204" extended-state="0" />
+    <frame x="55" y="213" width="1143" height="1204" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34995624" sideWeight="0.6707211" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2913386" sideWeight="0.6707211" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -358,11 +367,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.071668535" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/publish.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="25" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" />
@@ -371,16 +375,6 @@
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.status.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="0" selection-start="1597" selection-end="1597" vertical-scroll-proportion="-17.92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.status.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2067" selection-end="2067" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.select.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.html">
@@ -400,13 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/bootstrap.schedule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="12" selection-start="2149" selection-end="2149" vertical-scroll-proportion="1.0774411">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/bootstrap.dowjones.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47049" column="34" selection-start="1502741" selection-end="1502741" vertical-scroll-proportion="0.34096485">
@@ -414,30 +401,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.graph.html">
+    <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.select.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="23" selection-start="158" selection-end="158" vertical-scroll-proportion="-3.2">
+        <state line="17" column="0" selection-start="518" selection-end="518" vertical-scroll-proportion="0.24173748">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/main.js">
+    <entry file="file://$PROJECT_DIR$/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="47" selection-end="59" vertical-scroll-proportion="0.0">
+        <state line="4" column="0" selection-start="142" selection-end="142" vertical-scroll-proportion="0.06043437">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="36" selection-start="164" selection-end="164" vertical-scroll-proportion="-5.76">
+        <state line="8" column="38" selection-start="127" selection-end="127" vertical-scroll-proportion="-5.12">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.graph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="51" selection-start="245" selection-end="245" vertical-scroll-proportion="-3.84">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.schedule.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="88" selection-start="3064" selection-end="3140" vertical-scroll-proportion="0.0">
+        <state line="94" column="0" selection-start="2871" selection-end="2871" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -449,9 +450,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/bootstrap.schedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="13" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.41076487">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.room.status.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="78" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/scheduling/scheduling.graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="983" selection-end="983" vertical-scroll-proportion="0.41300192">
+        <state line="105" column="0" selection-start="4278" selection-end="4392" vertical-scroll-proportion="0.32695985">
           <folding />
         </state>
       </provider>
