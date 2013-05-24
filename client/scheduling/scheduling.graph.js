@@ -5,6 +5,9 @@ Template.calendarYearTemplate.resized = function () {
 Template.calendarYearTemplate.roomselected = function () {
     return Session.get("selected_room");
 };
+
+
+
 Template.calendarYearTemplate.rendered = function () {
     console.log('rendering calendar...');
 
@@ -15,11 +18,8 @@ Template.calendarYearTemplate.rendered = function () {
         console.log('creating reactive D3 container...');
         self.handle = Deps.autorun(function(){
             var resized = Session.get('resized');
-            var selectedRoomId = Session.get('selected_room');
+            //var selectedRoomId = Session.get('selected_room');
 
-            if(selectedRoomId){
-                var reservationsArray = Rooms.findOne(selectedRoomId).reservations;
-            }
 
             console.log('setting variables...');
             var width = 1024;
@@ -46,7 +46,8 @@ Template.calendarYearTemplate.rendered = function () {
                     .enter().append("svg")
                     .attr("width", width)
                     .attr("height", height)
-                    .attr("class", "RdYlGn")
+                    .attr("fill", "gray")
+                    .attr("class", "RdYlGn available")
                     .append("g")
                     .attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
             }catch(error){console.log(error);}
@@ -89,16 +90,13 @@ Template.calendarYearTemplate.rendered = function () {
 
             var collectionData = null;
             var reservationsList = null;
-            var parsedReservationsList = null;
+
             try{
                 console.log('querying room reservations...');
-                //console.log(JSON.stringify(Rooms.findOne(selectedRoomId).reservations));
-
-                //console.log('querying data from collection...');
-                //console.log('Schedule.find(reservations).count: ' + Schedule.find({_id: {$in: Rooms.findOne(selectedRoomId).reservations}}).count());
-                collectionData = Schedule.find({_id: {$in: Rooms.findOne(selectedRoomId).reservations}}).fetch();
-                //console.log(JSON.stringify(collectionData));
+                reservationsList = Rooms.findOne(Session.get('selected_room')).reservations;
+                collectionData = Schedule.find({_id: {$in: reservationsList}}).fetch();
             }catch(error){console.log(error);}
+
 
             try{
                 console.log('mapping and rolling up data...');
@@ -113,10 +111,11 @@ Template.calendarYearTemplate.rendered = function () {
 
             try{
                 console.log('applying color filter to rectangles...');
-                rect.filter(function(d) { return d in data; })
-                    .attr("class", function(d) { return "day " + color(data[d]); });
-            }catch(error){console.log(error);}
 
+                rect.filter(function(d) { return d in data; })
+                    //.attr("class", function(d) {return "day " + color(data[d]);});
+                    .attr("class", function(d) {return "day reserved";});
+            }catch(error){console.log(error);}
 
         });
     };

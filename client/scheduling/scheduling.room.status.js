@@ -62,13 +62,15 @@ Template.reservationDetailPane.events({
     },
     'click #reserveRoomsButton':function(){
         Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
+        Session.set('last_reservation_change', new Date());
         Meteor.flush();
     },
     'click #cancelReservationButton':function(){
+        console.log('click #cancelReservationButton');
         Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
+        Session.set('last_reservation_change', new Date());
         Meteor.flush();
     }
-
 });
 
 

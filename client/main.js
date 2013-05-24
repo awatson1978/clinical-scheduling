@@ -3,6 +3,7 @@ Session.set('display_date', moment().format("YYYY-MM-DD"));
 Session.set('selected_hour', '');
 Session.set('selected_reservation_slot', '');
 Session.set("resized", '');
+Session.set("last_reservation_change", '');
 
 Template.appContainerTemplate.reservationJson = function(){
     return Session.get('json_data');
@@ -11,8 +12,6 @@ Template.appContainerTemplate.reservationJson = function(){
 $(window).resize(function(evt) {
     try{
         Session.set("resized", new Date());
-        Session.set("appWidth", window.innerWidth);
-        console.log('window.innerWidth: ' + window.innerWidth);
     }catch(err){
         console.log(err);
     }
