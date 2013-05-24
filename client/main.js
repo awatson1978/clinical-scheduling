@@ -1,6 +1,7 @@
 Session.set('selected_room', '');
 Session.set('display_date', moment().format("YYYY-MM-DD"));
 Session.set('selected_hour', '');
+Session.set('selected_reservation_slot', '');
 Session.set("resized", '');
 
 Template.appContainerTemplate.reservationJson = function(){

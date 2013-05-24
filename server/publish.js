@@ -9,7 +9,7 @@ Meteor.publish('mySchedule', function (ownerId) {
 Meteor.publish('schedule', function () {
     try{
         // 30 days worth of reservations is 720 records
-        return Schedule.find({},{limit: 720});
+        return Schedule.find({},{limit: 8760});
     }catch(error){
         console.log(error);
     }

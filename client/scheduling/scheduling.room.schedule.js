@@ -28,26 +28,32 @@ Template.schedulingPageTemplate.selected_room = function(){
 Template.schedulingPageTemplate.events({
     'touchend .next':function(){
         Session.set('display_date', moment(Session.get('display_date')).add('d', 1).format("YYYY-MM-DD"));
+        Session.set('selected_reservation_slot', Schedule.findOne({date: Session.get('display_date'), hour: Session.get('selected_hour')}));
         Meteor.flush();
     },
     'touchend .previous':function(){
         Session.set('display_date', moment(Session.get('display_date')).subtract('d', 1).format("YYYY-MM-DD"));
+        Session.set('selected_reservation_slot', Schedule.findOne({date: Session.get('display_date'), hour: Session.get('selected_hour')}));
         Meteor.flush();
     },
     'touchend .displayed_date':function(){
         Session.set('display_date', moment().format("YYYY-MM-DD"));
+        Session.set('selected_reservation_slot', Schedule.findOne({date: Session.get('display_date'), hour: Session.get('selected_hour')}));
         Meteor.flush();
     },
     'click .next':function(){
         Session.set('display_date', moment(Session.get('display_date')).add('d', 1).format("YYYY-MM-DD"));
+        Session.set('selected_reservation_slot', Schedule.findOne({date: Session.get('display_date'), hour: Session.get('selected_hour')}));
         Meteor.flush();
     },
     'click .previous':function(){
         Session.set('display_date', moment(Session.get('display_date')).subtract('d', 1).format("YYYY-MM-DD"));
+        Session.set('selected_reservation_slot', Schedule.findOne({date: Session.get('display_date'), hour: Session.get('selected_hour')}));
         Meteor.flush();
     },
     'click .displayed_date':function(){
         Session.set('display_date', moment().format("YYYY-MM-DD"));
+        Session.set('selected_reservation_slot', Schedule.findOne({date: Session.get('display_date'), hour: Session.get('selected_hour')}));
         Meteor.flush();
     }
 });
@@ -71,10 +77,12 @@ Template.calendarDayTemplate.schedule = function(){
 // when you click a reservation slot, set a variable
 Template.calendarDayTemplate.events({
     'touchend .timeslot': function(){
-        Session.set('selected_hour', this._id);
+        Session.set('selected_hour', this.hour);
+        Session.set('selected_reservation_slot', this._id);
     },
     'click .timeslot': function(){
-        Session.set('selected_hour', this._id);
+        Session.set('selected_hour', this.hour);
+        Session.set('selected_reservation_slot', this._id);
     }
 });
 

@@ -7,7 +7,7 @@
 // finds the correct reservation slot
 Template.reservationDetailPane.helpers({
     reservation: function(){
-        return Schedule.findOne(Session.get('selected_hour'));
+        return Schedule.findOne(Session.get('selected_reservation_slot'));
     }
 });
 
@@ -54,15 +54,19 @@ Template.reservationDetailPane.reserved = function(){
 Template.reservationDetailPane.events({
     'touchend #reserveRoomsButton':function(){
         Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
+        Meteor.flush();
     },
     'touchend #cancelReservationButton':function(){
         Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
+        Meteor.flush();
     },
     'click #reserveRoomsButton':function(){
         Rooms.update(Session.get('selected_room'), {$addToSet: {reservations: this._id}})
+        Meteor.flush();
     },
     'click #cancelReservationButton':function(){
         Rooms.update(Session.get('selected_room'), {$pull: {reservations: this._id}})
+        Meteor.flush();
     }
 
 });

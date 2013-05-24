@@ -42,7 +42,7 @@ Template.calendarYearTemplate.rendered = function () {
             try{
                 console.log('creating SVG canvas to draw on...');
                 var svg = d3.select("#calendarYearGraph").selectAll("svg")
-                    .data(d3.range(2012, 2014))
+                    .data(d3.range(2013, 2014))
                     .enter().append("svg")
                     .attr("width", width)
                     .attr("height", height)
@@ -91,24 +91,13 @@ Template.calendarYearTemplate.rendered = function () {
             var reservationsList = null;
             var parsedReservationsList = null;
             try{
-                console.log('querying data from collection...');
-                //var collectionData = DowJonesSample.find({'Date': { $regex: '2008', $options: 'i' }}).fetch();
-
-                console.log(selectedRoomId);
-                console.log(Rooms.findOne(selectedRoomId).name);
-
+                console.log('querying room reservations...');
                 //console.log(JSON.stringify(Rooms.findOne(selectedRoomId).reservations));
-                // mongo stores the array of _ids as an array of strings
-                // this converts the reservations list to an array of numbers
 
-
+                //console.log('querying data from collection...');
+                //console.log('Schedule.find(reservations).count: ' + Schedule.find({_id: {$in: Rooms.findOne(selectedRoomId).reservations}}).count());
                 collectionData = Schedule.find({_id: {$in: Rooms.findOne(selectedRoomId).reservations}}).fetch();
-//                collectionData.forEach(function(document){
-//                    console.log(JSON.stringify(document));
-//                })
-
-
-                console.log(JSON.stringify(collectionData));
+                //console.log(JSON.stringify(collectionData));
             }catch(error){console.log(error);}
 
             try{
@@ -139,42 +128,6 @@ Template.calendarYearTemplate.destroyed = function () {
 function renderCalendarYearChart(){
     console.log('renderCalendarYearChart');
 
-    //var width = 768;
-    //var cellSize = 17;
-
-    // it's a -55 offset due to 40 pixels of padding and a -15 pixel offset in 'row'
-    //var width = (window.innerWidth - 55);
-
-
-
-
-
-//    d3.csv("datafile/dji.csv", function(error, csv) {
-//        var data = d3.nest()
-//            .key(function(d) { return d.Date; })
-//            .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
-//            .map(csv);
-//
-//        console.log(JSON.stringify(data));
-//
-//        rect.filter(function(d) { return d in data; })
-//            .attr("class", function(d) { return "day " + color(data[d]); })
-//            .select("title")
-//            .text(function(d) { return d + ": " + percent(data[d]); });
-//    });
-
-
-
-
-
-
     d3.select(self.frameElement).style("height", "500px");
-
 };
 
-
-
-//$(window).resize(function(evt) {
-//    d3.select('#calendarYearGraph')
-//        .attr('width', window.innerWidth);
-//});

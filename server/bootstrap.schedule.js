@@ -64,15 +64,11 @@ Meteor.startup(function () {
         row.date =  moment().format("YYYY-MM-DD");
 
         var hourCount = 25;
-        var daycount = 0;
         var dayOffset = 0;
 
-        // we add three months worth of timeslots
-        for (var i = 0; i < 2160; i++) {
+        // we add a year's worth of timeslots
+        for (var i = 0; i < 8760; i++) {
             row.hour = (i % 24) + 1;
-            row.Open = Math.random() * 10000;
-            row.Close = Math.random() * 10000;
-
 
             if(hourCount == 1){
                 hourCount = 24;
@@ -88,17 +84,43 @@ Meteor.startup(function () {
 
         // once we've created rooms and prepopulated the schedule,
         // lets reserve some rooms!
+//        console.log('reserving rooms...');
+//        var roomArray = Rooms.find({}).fetch();
+//        Schedule.find().forEach(function(document){
+//            console.log(JSON.stringify(document));
+//            if(Math.random() < 0.50){
+//                try{
+//                    var room = roomArray[Math.floor(Math.random() * roomArray.length)];
+//
+//                    Rooms.update(room._id, {$addToSet: {reservations: document._id}});
+//                    console.log('room ' + room.name + ' reserved at ' + document.date + ' :: ' + document.hour + ':00');
+//                }catch(error){
+//                    console.log(error);
+//                }
+//            }
+//        });
+
+
         console.log('reserving rooms...');
-        var roomArray = Rooms.find({}).fetch();
+        var roomArray = Rooms.find().fetch();
+        var threshold = 1;
         Schedule.find().forEach(function(document){
-            console.log(JSON.stringify(document));
-            if(Math.random() < 0.50){
+            console.log(JSON.stringify('week offset: ' + moment().diff(document.date, 'weeks')));
+            // a number from 0 to 52
+            //threshold  = moment().diff(document.date, 'weeks') * -1;
+
+            // a number from 1 to 53
+            //threshold  = (moment().diff(document.date, 'weeks') * -1) + 1;
+
+            // a number from 1 to 0.000x
+            threshold  = 1 / ((moment().diff(document.date, 'weeks') * -1) + 1);
+            console.log(threshold);
+            if(Math.random() < threshold){
                 try{
                     var room = roomArray[Math.floor(Math.random() * roomArray.length)];
-                    //console.log("room: " + JSON.stringify(room));
-                    //console.log("room._id: " + room._id);
 
                     Rooms.update(room._id, {$addToSet: {reservations: document._id}});
+                    console.log('room ' + room.name + ' reserved at ' + document.date + ' :: ' + document.hour + ':00');
                 }catch(error){
                     console.log(error);
                 }
