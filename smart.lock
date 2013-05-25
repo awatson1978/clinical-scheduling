@@ -7,7 +7,10 @@
   "dependencies": {
     "basePackages": {
       "fonts-pictographs": {},
-      "moment": {},
+      "moment": {
+        "git": "https://github.com/possibilities/meteor-moment.git",
+        "branch": "master"
+      },
       "fonts-barcode": {}
     },
     "packages": {
@@ -18,8 +21,8 @@
       },
       "moment": {
         "git": "https://github.com/possibilities/meteor-moment.git",
-        "tag": "v1.7.0",
-        "commit": "c64b6ec0e714b9556f4b6643d430b868ba69d3d7"
+        "branch": "master",
+        "commit": "918e7c09a800ef376aef5ecaedf52f100949ac3b"
       },
       "fonts-barcode": {
         "git": "https://github.com/awatson1978/fonts-barcode.git",

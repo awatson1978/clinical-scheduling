@@ -2,6 +2,9 @@
   "packages": {
     "fonts-pictographs": {},
     "moment": {},
-    "fonts-barcode": {}
+    "fonts-barcode": {},
+    "moment":{
+        "git": "https://github.com/possibilities/meteor-moment.git"
+    }
   }
 }

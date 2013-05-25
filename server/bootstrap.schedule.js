@@ -82,23 +82,6 @@ Meteor.startup(function () {
             Schedule.insert(row);
         }
 
-        // once we've created rooms and prepopulated the schedule,
-        // lets reserve some rooms!
-//        console.log('reserving rooms...');
-//        var roomArray = Rooms.find({}).fetch();
-//        Schedule.find().forEach(function(document){
-//            console.log(JSON.stringify(document));
-//            if(Math.random() < 0.50){
-//                try{
-//                    var room = roomArray[Math.floor(Math.random() * roomArray.length)];
-//
-//                    Rooms.update(room._id, {$addToSet: {reservations: document._id}});
-//                    console.log('room ' + room.name + ' reserved at ' + document.date + ' :: ' + document.hour + ':00');
-//                }catch(error){
-//                    console.log(error);
-//                }
-//            }
-//        });
 
 
         console.log('reserving rooms...');

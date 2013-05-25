@@ -34,8 +34,8 @@ Template.calendarYearTemplate.rendered = function () {
             try{
                 console.log('setting color scale...');
                 var color = d3.scale.quantize()
-                    .domain([-.05, .05])
-                    .range(d3.range(11).map(function(d) { return "q" + d; }));
+                    .domain([0, 1])
+                    .range(d3.range(5).map(function(d) { return "q" + d; }));
             }catch(error){console.log(error);}
 
 
@@ -46,7 +46,6 @@ Template.calendarYearTemplate.rendered = function () {
                     .enter().append("svg")
                     .attr("width", width)
                     .attr("height", height)
-                    .attr("fill", "gray")
                     .attr("class", "RdYlGn available")
                     .append("g")
                     .attr("transform", "translate(" + ((width - cellSize * 53) / 2) + "," + (height - cellSize * 7 - 1) + ")");
@@ -103,7 +102,7 @@ Template.calendarYearTemplate.rendered = function () {
                 var data = d3.nest()
                     .key(function(d) { return d.date; })
                     //.rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
-                    .rollup(function(d) { return 1; })
+                    .rollup(function(d) { return 0.05 + d3.sum(d, function(e) {return 0.1;}); })
                     .map(collectionData);
             }catch(error){console.log(error);}
 
@@ -113,8 +112,8 @@ Template.calendarYearTemplate.rendered = function () {
                 console.log('applying color filter to rectangles...');
 
                 rect.filter(function(d) { return d in data; })
-                    //.attr("class", function(d) {return "day " + color(data[d]);});
-                    .attr("class", function(d) {return "day reserved";});
+                    .attr("class", function(d) {return "day " + color(data[d]);});
+                    //.attr("class", function(d) {return "day reserved";});
             }catch(error){console.log(error);}
 
         });
