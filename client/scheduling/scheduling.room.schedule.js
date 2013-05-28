@@ -7,20 +7,28 @@
 // don't show the scheduling calendar unless a room has been selected
 Template.schedulingPageTemplate.helpers({
     inquery: function(){
-        if(Session.get('selected_room') == ""){
-            return false;
-        }else{
-            return true;
+        try{
+            if(Session.get('selected_room') == ""){
+                return false;
+            }else{
+                return true;
+            }
+        }catch(error){
+            console.log(error);
         }
     }
 });
 
 // displays the name of the selected room, if selected
 Template.schedulingPageTemplate.selected_room = function(){
-    if(Session.get('selected_room')){
-        return Rooms.findOne(Session.get('selected_room')).name;
-    }else{
-        return "";
+    try{
+        if(Session.get('selected_room')){
+            return Rooms.findOne(Session.get('selected_room')).name;
+        }else{
+            return "";
+        }
+    }catch(error){
+        console.log(error);
     }
 };
 
@@ -60,7 +68,11 @@ Template.schedulingPageTemplate.events({
 
 // format the display date
 Template.schedulingPageTemplate.selected_date = function(){
-    return moment(Session.get('display_date')).format("MMM Do YYYY");
+    try{
+        return moment(Session.get('display_date')).format("MMM Do YYYY");
+    }catch(error){
+        console.log(error);
+    }
 };
 
 
@@ -71,7 +83,11 @@ Template.schedulingPageTemplate.selected_date = function(){
 
 // filter the schedule to the 24 hours of the selected display date
 Template.calendarDayTemplate.schedule = function(){
-    return Schedule.find({date: Session.get('display_date')},{});
+    try{
+        return Schedule.find({date: Session.get('display_date')},{});
+    }catch(error){
+        console.log(error);
+    }
 };
 
 // when you click a reservation slot, set a variable

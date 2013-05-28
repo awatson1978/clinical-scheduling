@@ -101,7 +101,8 @@ Template.calendarYearTemplate.rendered = function () {
                 console.log('mapping and rolling up data...');
                 var data = d3.nest()
                     .key(function(d) { return d.date; })
-                    //.rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
+                    // this is just a weird little function to count up the number of reservations
+                    // and display appropriate colors
                     .rollup(function(d) { return 0.05 + d3.sum(d, function(e) {return 0.1;}); })
                     .map(collectionData);
             }catch(error){console.log(error);}
@@ -110,11 +111,30 @@ Template.calendarYearTemplate.rendered = function () {
 
             try{
                 console.log('applying color filter to rectangles...');
-
                 rect.filter(function(d) { return d in data; })
                     .attr("class", function(d) {return "day " + color(data[d]);});
                     //.attr("class", function(d) {return "day reserved";});
             }catch(error){console.log(error);}
+
+
+//            try{
+//                console.log('add past reservations...');
+//                var pastReservations = null;
+//                Schedule.find().forEach(document, function(){
+//                    if(moment(document.date).isBefore(moment().format("YYYY-MM_DD"))){
+//                        pastReservations.push(document);
+//                    }
+//
+//                });
+//                console.log("pastReservations: " + JSON.stringify());
+//
+//                rect.filter(function(d) { return d in data; })
+//                    .attr("class", function(d) {return "day " + color(data[d]);});
+//                //.attr("class", function(d) {return "day reserved";});
+//            }catch(error){console.log(error);}
+
+
+
 
         });
     };

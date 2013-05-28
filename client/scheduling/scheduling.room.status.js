@@ -7,33 +7,49 @@
 // finds the correct reservation slot
 Template.reservationDetailPane.helpers({
     reservation: function(){
-        return Schedule.findOne(Session.get('selected_reservation_slot'));
+        try{
+            return Schedule.findOne(Session.get('selected_reservation_slot'));
+        }catch(error){
+            console.log(error);
+        }
     }
 });
 
 // toggles the header color
 Template.reservationDetailPane.reservation_color = function(){
-    var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
-    if(reservations.indexOf(this._id) > -1){
-        return "panel-warning";
-    }else{
-        return "panel-success";
+    try{
+        var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
+        if(reservations.indexOf(this._id) > -1){
+            return "panel-warning";
+        }else{
+            return "panel-success";
+        }
+    }catch(error){
+        console.log(error);
     }
 };
 
 // toggles the header text
 Template.reservationDetailPane.reservation_status = function(){
-    var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
-    if(reservations.indexOf(this._id) > -1){
-        return "Reserved";
-    }else{
-        return "Available";
+    try{
+        var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
+        if(reservations.indexOf(this._id) > -1){
+            return "Reserved";
+        }else{
+            return "Available";
+        }
+    }catch(error){
+        console.log(error);
     }
 };
 
 // formats the date
 Template.reservationDetailPane.reservation_date = function(){
-    return moment(Session.get('display_date')).format("MMM Do YYYY");
+    try{
+        return moment(Session.get('display_date')).format("MMM Do YYYY");
+    }catch(error){
+        console.log(error);
+    }
 };
 
 
@@ -42,11 +58,15 @@ Template.reservationDetailPane.reservation_date = function(){
 
 //toggles which button is displayed
 Template.reservationDetailPane.reserved = function(){
-    var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
-    if(reservations.indexOf(this._id) > -1){
-        return true;
-    }else{
-        return false;
+    try{
+        var reservations = Rooms.findOne(Session.get('selected_room')).reservations;
+        if(reservations.indexOf(this._id) > -1){
+            return true;
+        }else{
+            return false;
+        }
+    }catch(error){
+        console.log(error);
     }
 };
 
