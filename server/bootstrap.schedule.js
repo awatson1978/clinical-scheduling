@@ -10,47 +10,47 @@ Meteor.startup(function () {
     console.log('creating rooms...');
     if (Rooms.find().count() === 0) {
         Rooms.insert({
-            name: 'Brazil Room 1',
+            name: 'X-Ray Exam Room 1',
             random: '0',
             reservations: []
         });
         Rooms.insert({
-            name: 'Brazil Room 2',
+            name: 'X-Ray Exam Room 2',
             random: '1',
             reservations: []
         });
         Rooms.insert({
-            name: 'Brazil Room 3',
+            name: 'X-Ray Exam Room 3',
             random: '2',
             reservations: []
         });
         Rooms.insert({
-            name: 'Russia Room 1',
+            name: 'CT Exam Room 1',
             random: '3',
             reservations: []
         });
         Rooms.insert({
-            name: 'Russia Room 2',
+            name: 'CT Exam Room 2',
             random: '4',
             reservations: []
         });
         Rooms.insert({
-            name: 'Russia Room 3',
+            name: 'MRI Exam Room',
             random: '5',
             reservations: []
         });
         Rooms.insert({
-            name: 'India Room 1',
+            name: 'NucMed Exam Room 1',
             random: '6',
             reservations: []
         });
         Rooms.insert({
-            name: 'India Room 2',
+            name: 'Ultrasound Exam Room 2',
             random: '7',
             reservations: []
         });
         Rooms.insert({
-            name: 'India Room 3',
+            name: 'Ultrasound Exam Room 3',
             random: '8',
             reservations: []
         });
