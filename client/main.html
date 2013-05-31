@@ -7,26 +7,28 @@
 </body>
 
 <template name="appContainerTemplate">
-    <div class="centered well-padded">
-        {{> calendarYearTemplate }}
-    </div>
-    <div class="padded row">
-        <div class="col col-lg-3">
-            {{> roomSelectionTemplate }}
+    <div class="page">
+        <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+            <div class="container">
+                <a class="navbar-brand" href="#">Clinical Forms</a>
+            </div>
         </div>
-        <div class="col col-lg-6">
-            {{> schedulingPageTemplate }}
-        </div>
-        <div class="col col-lg-3">
-            {{> reservationDetailPane }}
-        </div>
-    </div>
 
-    <!--<div class="fullwidth padded json-container">-->
-        <!--<div class="json panel">-->
-            <!--{{ reservationJson }}-->
-        <!--</div>-->
-    <!--</div>-->
+        <div class="centered well-padded">
+            {{> calendarYearTemplate }}
+        </div>
+        <div class="padded row">
+            <div class="col col-lg-3">
+                {{> roomSelectionTemplate }}
+            </div>
+            <div class="col col-lg-6">
+                {{> schedulingPageTemplate }}
+            </div>
+            <div class="col col-lg-3">
+                {{> reservationDetailPane }}
+            </div>
+        </div>
+    </div>
 </template>
 
 

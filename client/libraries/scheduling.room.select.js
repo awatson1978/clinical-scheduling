@@ -3,7 +3,7 @@
 
 // gets the list of rooms
 Template.roomSelectionTemplate.roomList = function(){
-    return Rooms.find();
+    return Rooms.find({},{sort: {name: 1}});
 };
 
 // sets which room will be displayed in the scheduling calendar
