@@ -3,9 +3,9 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+standard-app-packages
 insecure
-preserve-inputs
 less
-moment
-fonts-barcode
-d3
+mrt:moment
+clinical:barcode
+d3js:d3
