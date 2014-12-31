@@ -70,10 +70,10 @@ Template.calendarDayTemplate.helpers({
       if(room){
         return room.name;
       }else{
-        return "";
+        return "---";
       }
     } else {
-      return "";
+      return "---";
     }
   },
   selected_date: function () {

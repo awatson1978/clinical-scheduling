@@ -10,6 +10,7 @@
   <div class="page">
     <div class="navbar navbar-default navbar-fixed-top bs-docs-nav">
         <a class="navbar-brand" href="#">Clinical Scheduling</a>
+        <a class="pull-right navbar-brand" href="http://github.com/awatson1978/clinical-scheduling.git"><i class="fa fa-github"></i>  Get the Code</a>
     </div>
 
     <div class="centered well-padded">
@@ -17,15 +18,15 @@
     </div>
 
     <div class="padded row">
-      <div class="col col-lg-2">
+      <div class="col col-lg-3">
         {{> roomSelection }}
-      </div>
-      <div class="col col-lg-2">
-        {{> calendarDayTemplate }}
-        <!-- {{> schedulingPageTemplate }} -->
-      </div>
-      <div class="col col-lg-2">
         {{> reservationDetails }}
+      </div>
+      <div class="col col-lg-3">
+        {{> calendarDayTemplate }}
+      </div>
+      <div class="col col-lg-6">
+        {{> calendarMonth }}
       </div>
     </div>
   </div>
