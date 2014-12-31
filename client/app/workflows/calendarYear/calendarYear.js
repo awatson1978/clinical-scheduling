@@ -82,10 +82,10 @@ Template.calendarYear.rendered = function(){
 
       console.log('querying room reservations...');
 
-      console.log('selectedRoom', Session.get('selectedRoom'));
+      //console.log('selectedRoom', Session.get('selectedRoom'));
       var selectedRoom = Session.get('selectedRoom');
       var room = Rooms.findOne(Session.get('selectedRoom'));
-      console.log('room', selectedRoom);
+      //console.log('room', selectedRoom);
 
       if(!room){
         room = {reservations: []};
@@ -107,7 +107,7 @@ Template.calendarYear.rendered = function(){
       .rollup(function(d) { return 0.05 + d3.sum(d, function(e) {return 0.1;}); })
       .map(collectionData);
 
-      console.log(data);
+      //console.log(data);
 
       // add ids to graph so jquery can attack to it
       rect.attr("id", function(d) {return "day-" + d; });
@@ -121,7 +121,7 @@ Template.calendarYear.rendered = function(){
       // we've been having major scoping
       for(var key in data){
         if(data.hasOwnProperty(key)){
-          console.log(key + ' ' + data[key]);
+          //console.log(key + ' ' + data[key]);
           if(data[key] < 0.21){
             d3.select('#day-' + key).attr("class", "day q0");
           }else if((data[key] > 0.21) && (data[key] < 0.41)){
@@ -137,7 +137,7 @@ Template.calendarYear.rendered = function(){
       }
 
 
-      console.log('creating month path...');
+      //console.log('creating month path...');
       function monthPath(t0) {
         var t1 = new Date(t0.getFullYear(), t0.getMonth() + 1, 0),
         d0 = +day(t0), w0 = +week(t0),
