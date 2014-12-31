@@ -27,7 +27,10 @@ cd clinical-scheduling
 # And then running it...
 meteor
 ````
+============================
+#### Screenshot  
 
+![Scheduling Screenshot](https://raw.githubusercontent.com/awatson1978/clinical-scheduling/master/public/scheduling-screenshot.png)  
 
 ============================
 #### Licensing
