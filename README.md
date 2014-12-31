@@ -1,4 +1,4 @@
-scheduling
+clinical-scheduling
 =================
 
 A basic resource scheduling applet, using the [rzymek:fullcalendar](https://atmospherejs.com/rzymek/fullcalendar) package, the D3 calendar graph, moment.js, and plenty of Meteor reactive goodness.  
