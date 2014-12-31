@@ -34,9 +34,11 @@ minifiers@1.1.2
 minimongo@1.0.5
 mobile-status-bar@1.0.1
 mongo@1.0.9
+mrt:bootstrap-3@0.3.8
 mrt:moment@2.8.1
 observe-sequence@1.0.3
 ordered-dict@1.0.1
+pfafman:font-awesome-4@4.2.0_4
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3

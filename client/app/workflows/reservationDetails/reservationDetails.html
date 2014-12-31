@@ -1,0 +1,23 @@
+<template name="reservationDetails">
+  <div id="reservationDetails" class="padded page helveticas">
+    {{#with reservation}}
+    <div class="panel {{reservation_color}}">
+      <div class="panel-heading">
+        {{reservation_status}}
+      </div>
+      <ul class="list-unstyled">
+          <li><span class="label">Date</span><span class="with-left-padding">{{reservation_date}}</span></li>
+          <li><span class="label">Hour</span><span class="with-left-padding">{{hour}}:00</span></li>
+          <li><span class="label">Notes</span><span class="with-left-padding">{{notes}}</span></li>
+        </ul>
+      {{#if reserved}}
+        <div id="cancelReservationButton" class="clickable panel-footer appointment-warning">Cancel Reservation</div>
+      {{else}}
+        <div id="reserveRoomsButton" class="clickable panel-footer appointment-success">Reserve Room</div>
+      {{/if}}
+    </div>
+
+
+    {{/with}}
+  </div>
+</template>

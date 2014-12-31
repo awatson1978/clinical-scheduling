@@ -1,0 +1,32 @@
+
+<template name="calendarDayTemplate">
+  <div class="padded page helveticas">
+    {{#with room}}
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        {{ selectedRoom }}
+      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td id="previousButton" class="centered clickable" width="20%"> <i class="fa fa-chevron-left"></i></td>
+            <td id="displayedDate" class="centered clickable" width="60%"> {{ selected_date }} </td>
+            <td id="nextButton" class="centered clickable" width="20%">  <i class="fa fa-chevron-right"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <tbody>
+          {{#each schedule}}
+          <tr class="timeslot {{reservation_label}}">
+            <td class="hour">{{ time }}</td>
+            <td class="room">{{ reservation_status }}</td>
+            <!-- <td>{{ notes }}</td> -->
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{/with}}
+  </div>
+</template>

@@ -1,0 +1,21 @@
+<template name="roomSelection">
+  <div id="roomSelection" class="padded page">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        Select Room
+      </div>
+      <table class="table">
+        <tbody>
+          {{#each roomList }}
+          <tr class="room">
+            <td>
+              {{ name }}
+            </td>
+          </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

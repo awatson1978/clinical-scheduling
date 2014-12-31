@@ -1,0 +1,32 @@
+<head>
+  <title>Clinical Scheduling</title>
+</head>
+
+<body>
+  {{> appContainerTemplate}}
+</body>
+
+<template name="appContainerTemplate">
+  <div class="page">
+    <div class="navbar navbar-default navbar-fixed-top bs-docs-nav">
+        <a class="navbar-brand" href="#">Clinical Scheduling</a>
+    </div>
+
+    <div class="centered well-padded">
+      {{> calendarYear }}
+    </div>
+
+    <div class="padded row">
+      <div class="col col-lg-2">
+        {{> roomSelection }}
+      </div>
+      <div class="col col-lg-2">
+        {{> calendarDayTemplate }}
+        <!-- {{> schedulingPageTemplate }} -->
+      </div>
+      <div class="col col-lg-2">
+        {{> reservationDetails }}
+      </div>
+    </div>
+  </div>
+</template>
