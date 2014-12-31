@@ -9,10 +9,6 @@ Also, the calendar widget doesn't really do anything, except for being loaded in
 
 *note*: The demo works great on localhost; but the scheduling collection is quite big, and apparently doesn't run particularly well on the meteor.com servers.  That's really a fault of the schema design of this particular calendaring widget.
 
-
-============================
-#### Screenshot  
-
 ![Scheduling Screenshot](https://raw.githubusercontent.com/awatson1978/clinical-scheduling/master/public/scheduling-screenshot.png)  
 
 
