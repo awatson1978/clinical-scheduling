@@ -7,6 +7,8 @@ This applet does *not* contain iron:router, so it's up to you to implement custo
 
 Also, the calendar widget doesn't really do anything, except for being loaded into the applet.  It's up to you to implement some custom logic.  
 
+*note*: The demo works great on localhost; but the scheduling collection is quite big, and apparently doesn't run particularly well on the meteor.com servers.  That's really a fault of the schema design of this particular calendaring widget.
+
 
 ============================
 #### Meteor Version  
