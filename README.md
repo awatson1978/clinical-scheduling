@@ -11,6 +11,12 @@ Also, the calendar widget doesn't really do anything, except for being loaded in
 
 
 ============================
+#### Screenshot  
+
+![Scheduling Screenshot](https://raw.githubusercontent.com/awatson1978/clinical-scheduling/master/public/scheduling-screenshot.png)  
+
+
+============================
 #### Meteor Version  
 
 1.0
@@ -27,10 +33,6 @@ cd clinical-scheduling
 # And then running it...
 meteor
 ````
-============================
-#### Screenshot  
-
-![Scheduling Screenshot](https://raw.githubusercontent.com/awatson1978/clinical-scheduling/master/public/scheduling-screenshot.png)  
 
 ============================
 #### Licensing
