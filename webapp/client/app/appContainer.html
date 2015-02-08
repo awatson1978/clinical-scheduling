@@ -3,30 +3,33 @@
 </head>
 
 <body>
-  {{> appContainerTemplate}}
+  {{> mainLayout}}
 </body>
 
-<template name="appContainerTemplate">
-  <div class="page">
-    <div class="navbar navbar-default navbar-fixed-top bs-docs-nav">
-        <a class="navbar-brand" href="#">Clinical Scheduling</a>
-        <a class="pull-right navbar-brand" href="http://github.com/awatson1978/clinical-scheduling.git"><i class="fa fa-github"></i>  Get the Code</a>
-    </div>
+<template name="mainLayout">
+  <div id="mainLayout">
+    <div id="mainPanel">
+      <div class="page">
+        {{> navbarHeader }}
 
-    <div class="centered well-padded">
-      {{> calendarYear }}
-    </div>
+        <div class="centered well-padded">
+          {{> calendarYear }}
+        </div>
 
-    <div class="padded row">
-      <div class="col col-lg-3">
-        {{> roomSelection }}
-        {{> reservationDetails }}
-      </div>
-      <div class="col col-lg-3">
-        {{> calendarDayTemplate }}
-      </div>
-      <div class="col col-lg-6">
-        {{> calendarMonth }}
+        <div class="padded row">
+          <div class="col col-lg-3">
+            {{> roomSelection }}
+            {{> reservationDetails }}
+          </div>
+          <div class="col col-lg-3">
+            {{> calendarDayTemplate }}
+          </div>
+          <div class="col col-lg-6">
+            {{> calendarMonth }}
+          </div>
+        </div>
+
+        {{> navbarFooter }}
       </div>
     </div>
   </div>
