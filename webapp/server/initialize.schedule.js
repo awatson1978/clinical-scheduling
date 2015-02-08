@@ -78,7 +78,7 @@ Meteor.startup(function () {
                 hourCount--;
             }
 
-            console.log(JSON.stringify(row));
+            //console.log(JSON.stringify(row));
             Schedule.insert(row);
         }
 
@@ -88,7 +88,7 @@ Meteor.startup(function () {
         var roomArray = Rooms.find().fetch();
         var threshold = 1;
         Schedule.find().forEach(function(document){
-            console.log(JSON.stringify('week offset: ' + moment().diff(document.date, 'weeks')));
+            //console.log(JSON.stringify('week offset: ' + moment().diff(document.date, 'weeks')));
             // a number from 0 to 52
             //threshold  = moment().diff(document.date, 'weeks') * -1;
 
@@ -97,7 +97,7 @@ Meteor.startup(function () {
 
             // a number from 1 to 0.000x
             threshold  = 1 / ((moment().diff(document.date, 'weeks') * -1) + 1);
-            console.log(threshold);
+            //console.log(threshold);
             if(Math.random() < threshold){
                 try{
                     var room = roomArray[Math.floor(Math.random() * roomArray.length)];
@@ -116,5 +116,3 @@ Meteor.startup(function () {
 
     console.log('everything should be all set...');
 });
-
-
